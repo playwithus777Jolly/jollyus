@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rigenerazione Password</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+</head>
+<body>
+    <h2>Genera l'hash della nuova password</h2>
+    <input type="text" id="newPasswordInput" placeholder="Inserisci la nuova password" />
+    <button id="generateNewHash">Genera Nuovo Hash</button>
+    <div id="newResult" style="margin-top: 20px;"></div>
+
+    <script>
+        document.getElementById('generateNewHash').addEventListener('click', function() {
+            const newPassword = document.getElementById('newPasswordInput').value;
+            const newHash = CryptoJS.SHA256(newPassword).toString();
+            document.getElementById('newResult').innerText = `Nuovo hash della password: ${newHash}`;
+        });
+    </script>
+</body>
+</html>
